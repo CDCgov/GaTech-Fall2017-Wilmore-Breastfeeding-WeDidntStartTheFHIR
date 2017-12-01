@@ -1,0 +1,34 @@
+{
+   "resourceType": "Patient",
+   "active": true,
+   "name": [
+      {
+         "use": "official",
+         "family": [
+            "Cesection"
+         ],
+         "given": [
+            "Baby"
+         ]
+      }
+   ],
+   "gender": "male",
+   "birthDate": "2017-10-10",
+   "_birthDate": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+            "valueDateTime": "2017-10-10T10:28:45Z"
+          }
+        ]
+      },   
+   "link": [
+      {
+         "other": {
+            "reference": "RelatedPerson?name:family=Cesection&name:given=Daisy&birthdate=1990-01-01"
+         },
+         "type": "seealso"
+      }
+   ]
+}
+ 

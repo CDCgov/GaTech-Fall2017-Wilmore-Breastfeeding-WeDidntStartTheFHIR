@@ -1,0 +1,10 @@
+version: '3'
+services:
+  wedidntstartfhir:
+    build: ../fhir_server/.
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../fhir_server/testcase:/root/testcase
+      - ../fhir_server/TestPatients/:/root/TestPatients
+      - ../fhir_server/portal/:/root/portal

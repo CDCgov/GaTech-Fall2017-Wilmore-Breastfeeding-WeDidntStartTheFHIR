@@ -1,0 +1,18 @@
+{
+    "resourceType" : "RelatedPerson",
+     "name": [
+      {
+         "use": "official",
+         "family": [
+            "Cistica"
+         ],
+         "given": [
+            "Zora"
+         ]
+      }
+   ],
+   "birthDate": "1985-01-01",
+    "patient" : {
+        "reference" : "Patient?family=Cistica&given=Zora&birthdate=1985-01-01"
+    }
+}

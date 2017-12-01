@@ -1,0 +1,38 @@
+{
+  "resourceType": "Patient",
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Test14"
+      ],
+      "given": [
+        "Maya"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1976-01-01",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "800-555-5555",
+      "use": "home"
+    },
+    {
+      "system": "email",
+      "value": "Maya.Test@gatech.edu",
+      "use": "home"
+    }
+  ],
+  "address": [
+    {
+      "use": "home",
+      "line": "123 Test Drive",
+      "city": "Anytown",
+      "postalCode": "12345",
+      "country": "US"
+    }
+  ]
+}

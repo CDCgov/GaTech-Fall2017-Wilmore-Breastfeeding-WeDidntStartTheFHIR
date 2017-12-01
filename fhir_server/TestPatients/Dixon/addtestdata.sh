@@ -1,0 +1,11 @@
+#!/bin/sh
+curl -X POST -d @/root/TestPatients/Dixon/Patient_Dixon.json http://127.0.0.1:8080/baseDstu3/Patient -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/RelatedPerson_Dixon.json http://127.0.0.1:8080/baseDstu3/RelatedPerson -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/Patient_BabyDixon.json http://127.0.0.1:8080/baseDstu3/Patient -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/Observation_Weight_BabyDixon.json http://127.0.0.1:8080/baseDstu3/Observation -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/Observation_Weight_BabyDixon_Day3.json http://127.0.0.1:8080/baseDstu3/Observation -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/Observation_Weight_BabyDixon_Day5.json http://127.0.0.1:8080/baseDstu3/Observation -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/QuestionnaireResponse_BF_Dixon_Day4.json http://127.0.0.1:8080/baseDstu3/QuestionnaireResponse -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/QuestionnaireResponse_BF_Dixon_Day5.json http://127.0.0.1:8080/baseDstu3/QuestionnaireResponse -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/QuestionnaireResponse_Dixon_Day4.json http://127.0.0.1:8080/baseDstu3/QuestionnaireResponse -H "Content-Type: application/json"
+curl -X POST -d @/root/TestPatients/Dixon/QuestionnaireResponse_Dixon_Day5.json http://127.0.0.1:8080/baseDstu3/QuestionnaireResponse -H "Content-Type: application/json"

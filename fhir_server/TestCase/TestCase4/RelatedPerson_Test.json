@@ -1,0 +1,18 @@
+{
+    "resourceType" : "RelatedPerson",
+    "name": [
+    {
+      "use": "official",
+      "family": [
+            "Test4"
+        ],
+        "given": [
+            "Maya"
+        ]
+      }
+    ],
+    "birthDate": "1976-01-01",
+    "patient" : {
+        "reference" : "Patient?family=Test4&given=Maya&birthdate=1976-01-01"
+    }
+}

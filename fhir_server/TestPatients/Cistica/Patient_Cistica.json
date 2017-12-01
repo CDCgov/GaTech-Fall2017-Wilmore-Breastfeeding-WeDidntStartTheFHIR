@@ -1,0 +1,38 @@
+{
+   "resourceType": "Patient",
+   "active": true,
+   "name": [
+      {
+         "use": "official",
+         "family": [
+            "Cistica"
+         ],
+         "given": [
+            "Zora"
+         ]
+      }
+   ],
+   "gender": "female",
+   "birthDate": "1985-01-01",
+   "telecom": [
+      {
+         "system": "phone",
+         "value": "800-555-3333",
+         "use": "home"
+      },
+      {
+         "system": "email",
+         "value": "Zora.Cistica@gatech.edu",
+         "use": "home"
+      }
+   ],
+   "address": [
+      {
+         "use": "home",
+         "line": "4444 Test Drive",
+         "city": "Anytown",
+         "postalCode": "12345",
+         "country": "US"
+      }
+   ]
+}

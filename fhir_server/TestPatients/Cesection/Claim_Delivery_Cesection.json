@@ -1,0 +1,21 @@
+{
+   "resourceType": "Claim",
+   "type": "institutional",
+   "procedure": [
+      {
+         "sequence": "1",
+         "procedureCodeableConcept": {
+            "coding" : [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10",
+                    "code": "O82.0",
+                    "display": "Delivery by elective caesarean section"
+                }
+            ]
+         }
+      }
+   ],
+   "patient": {
+      "reference": "Patient?family=Cesection&given=Daisy&birthdate=1990-01-01"
+   }
+}

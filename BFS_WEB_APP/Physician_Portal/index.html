@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Lactation Counseling Referral Portal">
+    <title>Physician Referral Portal</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="./assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script type="text/javascript" src="assets/js/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="./js/fhir-client.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Lactation Counseling Referral Portal</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="patient-list-container" class="col-sm-3 col-md-2 sidebar">
+            <ul id="patient-list" class="nav nav-sidebar">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="patient-overview-container" class="physician-view">
+                <h1 class="page-header">Patient</h1>
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="row placeholders">
+                            <div class="col-xs-6 col-sm-4 placeholder">
+                                <img src="image/marla.png" width="120" height="120" class="img-responsive"
+                                     alt="Generic placeholder thumbnail">
+                                <h4>Patient Name: <br><span id="patientName">...</span></h4>
+                                <h4>Baby Name: <br><span id="babyName"></span> (ID = <span id="babyId"></span>)</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-8 placeholder">
+                                <h4>Gender: </h4><span id="Gender">...</span>
+                                <h4>DOB: </h4><span id="DOB"> ...</span>
+                                <h4>Tel: </h4><span id="mobile">...</span>
+                                <h4>Email: </h4><span id="Email">...</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h4>Mother's Risk Factors</h4>
+                            <div class="col-md-4">
+                                <h5>Age: <span id="mother-age">...</span></h5>
+                                <h5>Maternal Obesity: <span id="mother-bmi">negative</span></h5>
+                                <h5>Type I/II Diabetes: <span id="mother-diabetes">negative</span></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Polycystic ovarian syndrome: <span id="mother-polycystic">negative</span></h5>
+                                <h5>Hyperthyroidism: <span id="mother-hyperthyroid">negative</span></h5>
+                                <h5>Hypothyroidism: <span id="mother-hypothyroid">negative</span></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Mode of delivery: <span id="mother-mode-of-delivery">...</span></h5>
+                                <h5>Primary glandular insufficiency: <span id="mother-glandular">negative</span></h5>
+                                <h5>Breast pathology/surgery: <span id="mother-breast-surgery">negative</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="chart-container" class="col-md-6" style="height: 500px">
+                        <div id="primarychart_legend" class="primarychart-legend"></div>
+                        <div id="myChart" style="width:100%; height:100%;"></div>
+                    </div>
+                    <div id="referral-recommendation-container" class="col-md-6">
+                        <div class="center-block text-center padding-bottom-20px">
+                            <label>Lactation Referral: <span
+                                    id="referral-recommended">Available if Needed</span></label>
+                        </div>
+                        <div class="center-block text-center padding-bottom-20px"
+                             id="referral-recommendation-reason"></div>
+                        <div class="center-block text-center padding-bottom-20px">
+                            <label>
+                                <input type="checkbox" id="patient-authorization" class="checkbox checkbox-inline">
+                                Patient has authorized release of data to lactation consultant.
+                            </label>
+                        </div>
+                        <div class="center-block text-center padding-bottom-20px">
+                            <button id="initiate-referral" class="btn btn-default" disabled>Initiate Referral</button>
+                        </div>
+                    </div>
+                    <div id="questionnaire-container" class="col-md-6 hidden">
+                        <form id="questionnaire">
+                            <input type="hidden" id="patient-id" name="patient-id" value="0"/>
+                            <input type="reset" id="questionnaire-reset" class="hidden"/>
+                            <div class="form-group">
+                                <label>
+                                    Do you feel breastfeeding is going well so far?
+                                </label>
+                                <br/>
+                                <label><input type="radio" class="radio radio-inline" name="going-well" value="yes"/> Yes</label>
+                                <label><input type="radio" class="radio radio-inline" name="going-well" value="no"/> No</label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Do you have any concerns?
+                                </label>
+                                <br/>
+                                <label><input type="radio" class="radio radio-inline" name="concerned" value="yes"/> Yes</label>
+                                <label><input type="radio" class="radio radio-inline" name="concerned" value="no"/> No</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="concerns">What concerns do you have about breastfeeding?</label>
+                                <textarea class="form-control" id="concerns" name="concerns-explanation"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Has your milk come in? (Between the 2nd and 4th day postpartum, did your breast get firm?)</label>
+                                <br/>
+                                <label><input type="radio" class="radio radio-inline" name="milk-come-in" value="yes"/> Yes</label>
+                                <label><input type="radio" class="radio radio-inline" name="milk-come-in" value="no"/> No</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Does your baby nurse approximately every two to three hours with no more than one longer interval at night (up to 5 hours)?</label>
+                                <br/>
+                                <label><input type="radio" class="radio radio-inline" name="nurse-regularly" value="yes"/> Yes</label>
+                                <label><input type="radio" class="radio radio-inline" name="nurse-regularly" value="no"/> No</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Is your baby having bowel movements that look like yellow, seedy mustard?</label>
+                                <br/>
+                                <label><input type="radio" class="radio radio-inline" name="baby-bowel-movements" value="yes"/> Yes</label>
+                                <label><input type="radio" class="radio radio-inline" name="baby-bowel-movements" value="no"/> No</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Is your baby having at least 6 wet diapers a day?</label>
+                                <br/>
+                                <label><input type="radio" class="radio radio-inline" name="baby-wet-diapers" value="yes"/> Yes</label>
+                                <label><input type="radio" class="radio radio-inline" name="baby-wet-diapers" value="no"/> No</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Is your baby being fed any infant formula, water, or other liquids?</label>
+                                <br/>
+                                <label><input type="radio" class="radio radio-inline" name="baby-other-liquids" value="yes"/> Yes</label>
+                                <label><input type="radio" class="radio radio-inline" name="baby-other-liquids" value="no"/> No</label>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-default" id="cancel">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<!--[if lt IE 9]>
+<script src="./assets/js/flot/excanvas.js"></script>
+<![endif]-->
+<script src="./assets/js/flot/jquery.flot.js"></script>
+<script src="./assets/js/flot/jquery.flot.fillbetween.js"></script>
+<script src="./assets/js/flot/jquery.flot.stack.js"></script>
+<script src="./assets/js/flot/jquery.flot.resize.js"></script>
+<script src="./assets/js/flot/jquery.flot.navigate.js"></script>
+<script src="./assets/js/flot/jquery.flot.axislabels.js"></script>
+<script src="./assets/js/flot/jquery.flot.labels.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript" src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script type="text/javascript" src="js/dashboard.js"></script>
+<script type="text/javascript" src="js/dashboardPatient.js"></script>
+<script type="text/javascript" src="js/referralRecommendation.js"></script>
+<script type="text/javascript" src="js/weightChart.js"></script>
+<script type="text/javascript" src="js/motherRiskFactors.js"></script>
+<script type="text/javascript" src="js/patient.js"></script>
+<script type="text/javascript" src="js/patientList.js"></script>
+<script type="text/javascript" src="js/questionnaire.js"></script>
+<script type="text/javascript" src="js/router.js"></script>
+<script type="text/javascript" src="js/startup.js"></script>
+</body>
+</html>

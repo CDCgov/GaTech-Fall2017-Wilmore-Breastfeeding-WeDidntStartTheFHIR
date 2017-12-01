@@ -1,0 +1,53 @@
+{
+  "resourceType": "Patient",
+  "id": "1",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2017-10-24T21:03:21.074+00:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Jane Q <b>TESTER </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>MRN001</td></tr></tbody></table></div>"
+  },
+  "identifier": [
+    {
+      "system": "http://example.com/fictitious-mrns",
+      "value": "MRN001"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Tester",
+      "given": [
+        “Jane”,
+        "Q"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1932-09-24",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "800-555-5555",
+      "use": "home"
+    },
+    {
+      "system": "email",
+      "value": “jane.q.tester@gatech.edu",
+      "use": "home"
+    }
+  ],
+  "address": [
+    {
+      "use": "home",
+      "line": "123 Test Drive",
+      "city": "Anytown",
+      "postalCode": "12345",
+      "country": "US"
+    }
+  ],
+  "active": true
+}
+

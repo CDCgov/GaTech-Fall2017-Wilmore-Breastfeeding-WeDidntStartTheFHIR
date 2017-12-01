@@ -1,0 +1,34 @@
+{
+   "resourceType": "Observation",
+   "status": "final",
+   "category": {
+      "coding": [
+         {
+            "system": "http://hl7.org/fhir/observation-category",
+            "code": "vital-signs",
+            "display": "Vital Signs"
+         }
+      ],
+      "text": "Vital Signs"
+   },
+   "code": {
+      "coding": [
+         {
+            "system": "http://loinc.org",
+            "code": "39156-5",
+            "display": "Body mass index (BMI) [Ratio]"
+         }
+      ],
+      "text": "BMI"
+   },
+   "subject": {
+      "reference": "Patient?family=Test15&given=Maya&birthdate=1976-01-01"
+   },
+   "effectiveDateTime": "2017-10-03",
+   "valueQuantity": {
+      "value": "22.0",
+      "unit": "kg/m2",
+      "system": "http://unitsofmeasure.org",
+      "code": "kg/m2"
+   }
+}

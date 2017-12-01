@@ -1,0 +1,21 @@
+{
+   "resourceType": "Claim",
+   "type": "institutional",
+   "diagnosis": [
+      {
+         "sequence": "1",
+         "diagnosisCodeableConcept": {
+            "coding" : [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10",
+                    "code": "Z37.0",
+                    "display": "Single live birth"
+                }
+            ]
+         }
+      }
+   ],
+    "patient": {
+    "reference": "Patient?family=Test15&given=Maya&birthdate=1976-01-01"
+   }
+}

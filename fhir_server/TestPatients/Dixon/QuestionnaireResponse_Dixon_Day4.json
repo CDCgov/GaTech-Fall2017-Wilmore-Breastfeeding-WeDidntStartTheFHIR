@@ -1,0 +1,31 @@
+{
+	"resourceType": "QuestionnaireResponse",
+    "status": "in-progress",
+    "authored": "2017-11-10",
+	"author": {
+		"reference": "Patient?family=Dixon&given=Marla&birthdate=1986-01-01"
+	},
+	"source": {
+		"reference": "Patient?family=Dixon&given=Marla&birthdate=1986-01-01"
+	},
+	"identifier": "questionnaire",
+	"item": [{
+		"linkId": "questionnaireType",
+		"text": "QuestionnaireType",
+		"answer": [{
+			"valueString": "Patient questionnaire responses"
+		}]
+	}, {
+		"linkId": "hasMilkComeIn",
+		"text": "Has your milk come in?",
+		"answer": [{
+			"valueBoolean": "false"
+		}]
+	}, {
+		"linkId": "isStoolMustard",
+		"text": "Is your baby having bowel movements that look like yellow, seedy mustard?",
+		"answer": {
+			"valueBoolean": "false"
+		}
+	}]
+}

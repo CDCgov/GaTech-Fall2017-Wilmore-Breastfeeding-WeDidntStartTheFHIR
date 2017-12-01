@@ -1,0 +1,34 @@
+{
+   "resourceType": "Observation",
+   "status": "final",
+   "category": {
+      "coding": [
+         {
+            "system": "http://hl7.org/fhir/observation-category",
+            "code": "vital-signs",
+            "display": "Vital Signs"
+         }
+      ],
+      "text": "Vital Signs"
+   },
+   "code": {
+      "coding": [
+         {
+            "system": "http://loinc.org",
+            "code": "8339-4",
+            "display": "Birth weight Measured"
+         }
+      ],
+      "text": "Birth Weight"
+   },
+   "subject": {
+      "reference": "Patient?family=Test7&given=Baby&birthdate=2017-11-06"
+   },
+   "effectiveDateTime": "2017-11-06T10:57:34-07:00",
+   "valueQuantity": {
+      "value": "3600.00",
+      "unit": "g",
+      "system": "http://unitsofmeasure.org",
+      "code": "g"
+   }
+}

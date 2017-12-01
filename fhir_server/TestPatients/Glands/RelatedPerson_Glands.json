@@ -1,0 +1,18 @@
+{
+    "resourceType" : "RelatedPerson",
+    "name": [
+      {
+         "use": "official",
+         "family": [
+            "Glands"
+         ],
+         "given": [
+            "Yuri"
+         ]
+      }
+   ],
+   "birthDate": "1987-01-01",
+    "patient" : {
+        "reference" : "Patient?family=Glands&given=Yuri&birthdate=1987-01-01"
+    }
+}

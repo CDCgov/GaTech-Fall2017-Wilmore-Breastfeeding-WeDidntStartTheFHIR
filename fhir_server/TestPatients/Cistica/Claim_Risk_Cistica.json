@@ -1,0 +1,21 @@
+{
+   "resourceType": "Claim",
+   "type": "institutional",
+   "diagnosis": [
+      {
+         "sequence": "1",
+         "diagnosisCodeableConcept": {
+            "coding" : [
+                {
+                    "system": "http://hl7.org/fhir/sid/icd-10",
+                    "code": "E28.2",
+                    "display": "Polycystic ovarian syndrome"
+                }
+            ]
+         }
+      }
+   ],
+   "patient": {
+      "reference": "Patient?family=Cistica&given=Zora&birthdate=1985-01-01"
+   }
+}

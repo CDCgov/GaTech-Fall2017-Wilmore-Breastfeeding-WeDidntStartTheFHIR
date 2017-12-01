@@ -1,0 +1,55 @@
+{
+	"resourceType": "QuestionnaireResponse",
+    "status" : "in-progress",
+    "authored" : "2017-11-10",
+	"author": {
+		"reference": "Patient?family=Test7&given=Marla&birthdate=1986-01-01"
+	},
+	"source": {
+		"reference": "Patient?family=Test7&given=Marla&birthdate=1986-01-01"
+	},
+	"identifier": "data",
+	"item": [{
+		"linkId": "questionnaireType",
+		"text": "QuestionnaireType",
+		"answer": [{
+			"valueString": "Daily Breastfeeding Data"
+		}]
+	}, {
+		"linkId": "date",
+		"text": "What date is this",
+		"answer": [{
+			"valueDate": "2017-11-10"
+		}]
+	}, {
+		"linkId": "numberOfFeedings",
+		"text": "Number of Feedings",
+		"answer": [{
+			"valueString": "3"
+		}]
+	}, {
+		"linkId": "medianGap",
+		"text": "Median Gap",
+		"answer": [{
+			"valueString": "6 hours"
+		}]
+	}, {
+		"linkId": "averageLength",
+		"text": "Average Length",
+		"answer": [{
+			"valueString": "30 min"
+		}]
+	}, {
+		"linkId": "maximumGap",
+		"text": "Maximum Gap",
+		"answer": {
+			"valueString": "12"
+		}
+	}, {
+		"linkId": "numberOfWetDiapers",
+		"text": "Number of Wet Diapers",
+		"answer": {
+			"valueString": "6"
+		}
+	}]
+}

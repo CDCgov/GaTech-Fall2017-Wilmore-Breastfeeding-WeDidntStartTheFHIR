@@ -1,0 +1,97 @@
+FUNCTIONS TO KNOW:
+
+// Generates the Json text of a breastfeeding session.
+JSONGenerator.GenerateBreastFeedingSessionLogJson(patientID: String, date : String, startTime : String, 
+					     stopTime : String, duration : String, wetDiapers : String)
+	Param:
+		patientID : The patient’s ID (e.g. “42”, “1”, “33”, etc.)
+		date : The date the session took place
+		startTime : The time when the session began
+		stopTime : The time when the session ended
+		duration : The length of the session
+		wetDiapers : The number of wet diapers since the last session.
+
+	return : String
+		returns: JSON String text that contains the information on a single breastfeeding session
+
+
+// Gets the ID of a patient from the server based on the patient’s name and birthdate.
+FileSystem.GetPatientIDFromFHIRServer(family: String, given: String, birthDate:String)
+	Param:
+		family : The patient’s last name.
+		given : The patient’s first name.
+		birthDate : The patient’s birthday
+
+	return : String
+		returns: The patient’s ID from the FHIR server. Returns nil if the patient doesn’t exist.
+
+
+// Writes a Json String to a file
+FileSystem.WriteJsonBreastfeedingLogToLibrary(jsonContent: String, fileName: String, id: String)
+	Param:
+		jsonContent : The JSON data String to be saved to a JSON file.
+		fileName : The name of the file for the JSON data. 
+			   Needs to be in this format “yyyy-MM-dd_HH-mm-ss” and the date and time needs to
+                           indicate the actual date and the stop/end time of the session. For example, if 
+			   a session was done on October 31, 2017 and ended at 1:30 pm, then the fileName 
+	                   should be:“2017-10-30_13-30-00”
+		id : The id of the patient to which the session log belongs to(e.g. “42”, “1”, “33”, etc.)
+
+	return : Bool
+		Indicates if the file was created successfully or not.
+
+
+
+HOW TO CREATE A BREASTFEEDING SESSION DATA FOR DEMOING:
+
+All you need to do is generate a the JSON string with the “GenerateBreastFeedingSessionLogJson” function
+and write it to the file using the “WriteJsonBreastfeedingLogToLibrary” function.
+
+For example, lets say I wanted to write a breastfeeding session with the following information for patient
+Marla Dixon whose birthday is 12-01-1989:
+
+	date: 11-01-2017
+	startTime: 8:30 AM
+	endTime: 9:00 AM
+	wetDiapers: 1
+
+Then I’d write the following lines of code in the “viewDidLoad()” function of the “LoginViewController”:
+	
+--------------------------------------------------------------------------------------------------------
+
+// Create the file system object
+let fs = FileSystem()
+        
+// Get the patient’s id from the Pediatrician’s FHIR server
+var id = fs.GetPatientIDFromFHIRServer(family: "Dixon", given:"Marla", birthDate:"1989-12-01")
+
+// If there is no id, then do nothing
+if (id != nil){
+
+	// Create the JSON text from the session’s data.
+	let jsonString1 = JSONGenerator.GenerateBreastFeedingSessionLogJson(patientID: id!, date: "2017-11-01”, startTime: “8:30 AM", stopTime: “9:00 AM", duration: "30 minute(s)", wetDiapers: "1")
+	
+	// Write the newly created JSON text to the patient’s log directory
+	fs.WriteJsonBreastfeedingLogToLibrary(jsonContent: jsonString1, fileName: "2017-11-01_09-00-00", id: id!)
+
+}
+
+--------------------------------------------------------------------------------------------------------
+
+This will create a breastfeeding session file. If the fileName’s date is between the last upload date and 
+today’s date, then the app will take those sessions, do the stat calculations, and send up the daily 
+breastfeeding data stats to the server. So if you had 8 sessions for one day, then the app will take
+those 8 sessions, calculate the stats from them, and upload the stats for that day.
+
+The last upload date is saved within the logs directory in the application’s file system. If using
+the simulator, this can be easily navigated to by using the directory path that prints in the debugger’s
+output window.
+ 
+
+
+
+
+
+
+
+

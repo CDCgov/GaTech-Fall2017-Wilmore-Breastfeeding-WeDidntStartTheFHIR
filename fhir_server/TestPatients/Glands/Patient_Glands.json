@@ -1,0 +1,38 @@
+{
+   "resourceType": "Patient",
+   "active": true,
+   "name": [
+      {
+         "use": "official",
+         "family": [
+            "Glands"
+         ],
+         "given": [
+            "Yuri"
+         ]
+      }
+   ],
+   "gender": "female",
+   "birthDate": "1987-01-01",
+   "telecom": [
+      {
+         "system": "phone",
+         "value": "800-555-2222",
+         "use": "home"
+      },
+      {
+         "system": "email",
+         "value": "Yuri.Glands@gatech.edu",
+         "use": "home"
+      }
+   ],
+   "address": [
+      {
+         "use": "home",
+         "line": "333 Test Drive",
+         "city": "Anytown",
+         "postalCode": "12345",
+         "country": "US"
+      }
+   ]
+}
