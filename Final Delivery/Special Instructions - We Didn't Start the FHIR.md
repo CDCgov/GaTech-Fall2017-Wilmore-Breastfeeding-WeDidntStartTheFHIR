@@ -2,7 +2,7 @@
 
 ## **Special Instructions**
 
-Version 1.0 - November 30, 2017
+Version 1.1 - Dec 7, 2017
 
 #### **Project**
 CDC Breastfeeding Support Initiative
@@ -10,8 +10,13 @@ CDC Breastfeeding Support Initiative
 #### **Team We Didn't Start the FHIR**
 Jamon Bowen, Phillip Baxley, Justin Kristensen, John Van Wagenen, Zeyu Yang
 
-#### **GitHub Link**
+#### **GitHub Links**
+
+Georgia Tech Github:
 https://github.gatech.edu/gt-hit-fall2017/CDC-BREASTFEEDING-SUPPORT-INITIATIVE.git
+
+Public repo:
+https://github.com/CDCgov/GaTech-Fall2017-Wilmore-Breastfeeding-WeDidntStartTheFHIR
 
 ---
 
