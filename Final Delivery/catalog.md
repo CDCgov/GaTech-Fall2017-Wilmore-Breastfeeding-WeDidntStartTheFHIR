@@ -6,7 +6,7 @@
 
 ### **GitHub Link**:
 
-https://github.gatech.edu/gt-hit-fall2017/CDC-BREASTFEEDING-SUPPORT-INITIATIVE.git
+https://github.com/CDCgov/GaTech-Fall2017-Wilmore-Breastfeeding-WeDidntStartTheFHIR
 
 ### **Team**: We Didn't Start the FHIR
 
