@@ -1,7 +1,7 @@
 # **Breastfeeding Support iOS Application**
 
 # **User Manual**
-Version 1.0 - November 30, 2017
+Version 1.1 - December 10, 2017
 
 #### **Project**
 CDC Breastfeeding Support Initiative
@@ -10,7 +10,7 @@ CDC Breastfeeding Support Initiative
 Jamon Bowen, Phillip Baxley, Justin Kristensen, John Van Wagenen, Zeyu Yang
 
 #### **GitHub Link**
-https://github.gatech.edu/gt-hit-fall2017/CDC-BREASTFEEDING-SUPPORT-INITIATIVE.git
+https://github.com/CDCgov/GaTech-Fall2017-Wilmore-Breastfeeding-WeDidntStartTheFHIR
 
 ---
 
