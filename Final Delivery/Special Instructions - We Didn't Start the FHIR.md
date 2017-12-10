@@ -24,7 +24,7 @@ The purpose of this document is to provide instructions on how to setup and run 
 
 
 #### 1.2 Document Breakdown
-The system has three parts: a FHIR server, a care provider web portal, and an iOS application. The FHIR server will need to be up first before running the web portal and the iOS application. The section 2 will give instructions on how to startup the FHIR server, Section 3 will give instructions on how to startup the Care Provider Web Portal, and Section 4 will give instructions on how to startup the iOS application.  To run both the iOS app and the other parts of the application, a Mac test platform running the Yosemite release of OSX is required.  A complete walkthrough of the start-up procedure is available here: *https://youtu.be/tIViSa6zZxg*
+The system has three parts: a FHIR server, a care provider web portal, and an iOS application. The FHIR server will need to be up first before running the web portal and the iOS application. The section 2 will give instructions on how to startup the FHIR server, Section 3 will give instructions on how to startup the Care Provider Web Portal, and Section 4 will give instructions on how to startup the iOS application.  To run both the iOS app and the other parts of the application, a Mac test platform running the Yosemite release of OSX is required.  A complete walkthrough of the start-up procedure is available here: *https://youtu.be/GDZWLal2Zfw*
 
 ---
 ### 2. FHIR Server Startup Instructions
